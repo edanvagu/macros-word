@@ -16,6 +16,7 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
 
+
 Option Explicit
 ' Macros creadas por Edward Aníbal Vásquez.
 ' Contacto: edward_avg@hotmail.com
@@ -156,8 +157,48 @@ Private Sub Label33_Click()
 
 End Sub
 
-Private Sub Label61_Click()
+Private Sub Label58_Click()
+    ActiveDocument.FollowHyperlink Address:="https://github.com/edanvagu"
+End Sub
 
+Private Sub Label59_Click()
+    ActiveDocument.FollowHyperlink Address:="https://www.linkedin.com/in/eavasquezgu/"
+End Sub
+
+Private Sub Label61_Click()
+    
+End Sub
+
+Private Sub Label62_Click()
+    ActiveDocument.FollowHyperlink Address:="https://github.com/edanvagu"
+End Sub
+
+Private Sub Label63_Click()
+    ActiveDocument.FollowHyperlink Address:="https://www.linkedin.com/in/eavasquezgu/"
+End Sub
+
+Private Sub Label65_Click()
+    
+End Sub
+
+Private Sub Label66_Click()
+    ActiveDocument.FollowHyperlink Address:="https://github.com/edanvagu"
+End Sub
+
+Private Sub Label67_Click()
+    ActiveDocument.FollowHyperlink Address:="https://www.linkedin.com/in/eavasquezgu/"
+End Sub
+
+Private Sub Label69_Click()
+    
+End Sub
+
+Private Sub Label70_Click()
+    ActiveDocument.FollowHyperlink Address:="https://github.com/edanvagu"
+End Sub
+
+Private Sub Label71_Click()
+    ActiveDocument.FollowHyperlink Address:="https://www.linkedin.com/in/eavasquezgu/"
 End Sub
 
 Private Sub MultiPage1_Change()
@@ -170,7 +211,6 @@ End Sub
 Private Sub InsertarMarcasCitasIndentadasT()
 
     Dim strQuoteStart As String
-    Dim strQuoteEnd As String
     Dim intNumberOfQuotes As Integer
     Dim styleName As String
     styleName = "CitasIndentadas-Macros"
@@ -191,8 +231,7 @@ Private Sub InsertarMarcasCitasIndentadasT()
     LimpiarMarcasCitasIndentadasT
     
     intNumberOfQuotes = 0
-    strQuoteStart = "[INICIO DE CITA] "
-    strQuoteEnd = " [FIN DE CITA]"
+    strQuoteStart = "[Cita indentada] "
 
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
@@ -205,8 +244,6 @@ Private Sub InsertarMarcasCitasIndentadasT()
         If Selection.Find.Execute = True Then
             Selection.InsertBefore strQuoteStart
             Selection.MoveLeft unit:=wdCharacter, Count:=1, Extend:=wdExtend
-            Selection.InsertAfter strQuoteEnd
-            Selection.MoveRight unit:=wdCharacter, Count:=1
             Selection.EndOf
             intNumberOfQuotes = intNumberOfQuotes + 1
         Else
@@ -225,23 +262,7 @@ Private Sub LimpiarMarcasCitasIndentadasT()
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
-        .Text = "[INICIO DE CITA] "
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = False
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    With Selection.Find
-        .Text = " [FIN DE CITA]"
+        .Text = "[Cita indentada] "
         .Replacement.Text = ""
         .Forward = True
         .Wrap = wdFindContinue
@@ -261,7 +282,7 @@ Private Sub AplicarColorMarcasCitasIndentadasT()
     Selection.Find.Replacement.Font.Color = wdColorRed
     Selection.Find.Replacement.Highlight = False
     With Selection.Find
-        .Text = "[INICIO DE CITA]"
+        .Text = "[Cita indentada]"
         .Replacement.Text = ""
         .Forward = True
         .Wrap = wdFindContinue
@@ -273,24 +294,7 @@ Private Sub AplicarColorMarcasCitasIndentadasT()
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
-    
-    Selection.Find.ClearFormatting
-    Selection.Find.Replacement.ClearFormatting
-    Selection.Find.Replacement.Font.Color = wdColorRed
-    Selection.Find.Replacement.Highlight = False
-    With Selection.Find
-        .Text = "[FIN DE CITA]"
-        .Replacement.Text = ""
-        .Forward = True
-        .Wrap = wdFindContinue
-        .Format = True
-        .MatchCase = False
-        .MatchWholeWord = False
-        .MatchWildcards = False
-        .MatchSoundsLike = False
-        .MatchAllWordForms = False
-    End With
-    Selection.Find.Execute Replace:=wdReplaceAll
+
 End Sub
 Private Sub InsertarMarcasNivelesTitulacionT()
 
